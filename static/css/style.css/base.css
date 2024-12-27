@@ -1,0 +1,78 @@
+
+/* Subtle fade-in for elements */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar: subtle fade-in and join effect for navbar items */
+.navbar {
+    background-color: #2c3e50 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-fill-mode: forwards;
+}
+
+.navbar-brand {
+    animation-delay: 0.5s;
+}
+
+.nav-link {
+    animation-delay: 1s;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #3498db !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
+/* Search bar styling */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    border-radius: 20px 0 0 20px;
+    padding-left: 30px;  /* To make space for the icon */
+}
+
+.search-button {
+    border-radius: 0 20px 20px 0;
+    background-color: #3498db; /* Blue background */
+    color: white; /* White text */
+    font-weight: bold; /* Make text bold */
+    padding: 10px 20px; /* Add padding for better visibility */
+}
+
+.search-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-input {
+        width: 80%;
+    }
+}

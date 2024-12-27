@@ -1,0 +1,194 @@
+
+/* General Body Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 50px 20px;
+    background: linear-gradient(to right, #1f4b6a, #068ec3);
+    color: white;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-top: 20px;
+}
+
+/* Message Area for No Posts */
+.message-area {
+    background-color: #fff;
+    border: 2px solid #07abf2;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 30px;
+}
+
+.message-area h2 {
+    color: #333;
+}
+
+.message-area p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Posts Container */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Post Cards Styling (Floating Cloud Effect) */
+.post-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+    animation: float 2s infinite ease-in-out;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    animation: jiggle 0.3s ease-in-out 1;
+}
+
+/* Add subtle border around each post */
+.post-card {
+    border-left: 4px solid #1f5d6a;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+/* Post Card Body */
+.post-card-body {
+    padding: 20px;
+}
+
+.post-title {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #888;
+}
+
+.post-summary {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.post-card a {
+    text-decoration: none;
+}
+
+/* Button Hover Effects */
+.btn-lg, .btn-info {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.btn-lg:hover, .btn-info:hover {
+    background-color: #1f5d6a;
+    transform: translateY(-5px);
+}
+
+/* Toggle Post Content */
+.post-card .toggle-post {
+    background-color: #1f5d6a;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.post-card .toggle-post:hover {
+    background-color: #3bc6db;
+    transform: translateY(-3px);
+}
+
+.post-card .post-content {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Floating Effect */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Jiggling Effect */
+@keyframes jiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .post-card {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .posts-container {
+        grid-template-columns: 1fr;
+    }
+}

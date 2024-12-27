@@ -1,0 +1,229 @@
+/* Global Body Styles */ 
+body {
+    background: linear-gradient(to right, #1f4b6a, #068ec3); /* Soft light background */
+    color: #333; /* Darker text for readability */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.post-container {
+    padding: 40px;
+    background-color: #ffffff; /* White background for clarity */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin: 40px auto;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+/* Header Box Styling (Post Title in Box) */
+.post-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #ecf0f1; /* Light gray background for title box */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Post Title Inside Box */
+.post-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+}
+
+/* Neon Hover Effect for Title Box */
+.post-header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(5, 66, 74, 0.895);
+    border: 3px solid #3498db; /* Neon blue border */
+}
+
+/* Glitch Effect for Title */
+.glitch {
+    position: relative;
+    color: #3498db;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff6347;
+    z-index: -1;
+    animation: glitch-anim 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translate(-2px, 1px);
+    }
+    50% {
+        clip-path: inset(80% 0 20% 0);
+        transform: translate(-2px, -1px);
+    }
+    100% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translate(2px, 2px);
+    }
+}
+
+/* Header Underline */
+.header-underline {
+    width: 120px;
+    height: 3px;
+    background-color: #3498db;
+    margin: 10px auto;
+}
+
+/* Post Meta Section */
+.post-meta {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.meta-text {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Post Content Box */
+.post-content-box {
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(5, 66, 74, 0.8);
+}
+
+/* Post Content Text */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Post Image */
+.post-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Image Hover Effect */
+.post-image:hover {
+    transform: scale(1.05);
+}
+
+/* Fade In Animation for Sections */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .post-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .post-header h1 {
+        font-size: 2rem;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+
+    .post-image {
+        width: 100%;
+        margin-top: 15px;
+    }
+    /* Style the buttons for actions like edit, delete, and create new */
+.post-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Buttons styling */
+.post-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.post-button:hover {
+    transform: translateY(-5px);
+}
+
+/* Edit Post Button */
+.post-button.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.post-button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Delete Post Button */
+.post-button.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.post-button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Create New Post Button */
+.post-button.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.post-button.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Button Container */
+.post-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+}

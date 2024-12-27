@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css/search.css') }}">
+    
+</head>
+<body>
+
+    <!-- Navbar for navigation -->
+    <div class="navbar">
+        <a href="/">Home</a>
+    </div>
+
+    <!-- Search container -->
+    <form action="{{ url_for('search') }}" method="get">
+        <div class="form-group">
+            <label for="query">Search:</label>
+            <input type="text" id="query" name="query" class="form-control" value="{{ request.args.get('query', '') }}" placeholder="Search posts...">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    
+    <div class="search-container">
+        <input type="text" id="search" class="search-input" placeholder="Search for a blog..." />
+        <button class="search-button" id="searchButton">Search</button>
+    </div>
+
+    <!-- Suggestions will appear here -->
+    <div class="suggestions" id="suggestions"></div>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const searchButton = document.getElementById('searchButton');
+        const suggestionsDiv = document.getElementById('suggestions');
+
+        // Fetch suggestions as user types
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.trim();
+
+            if (query.length > 2) {
+                fetch(`/suggestions?query=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        suggestionsDiv.innerHTML = ''; // Clear previous suggestions
+                        if (data.length > 0) {
+                            suggestionsDiv.style.display = 'block'; // Show suggestions
+                            data.forEach(suggestion => {
+                                const div = document.createElement('div');
+                                div.textContent = suggestion;
+                                div.addEventListener('click', function() {
+                                    // Handle suggestion click (redirect to result page)
+                                    window.location.href = `/search_result/${suggestion}`;
+                                });
+                                suggestionsDiv.appendChild(div);
+                            });
+                        } else {
+                            suggestionsDiv.style.display = 'none'; // Hide if no suggestions
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching suggestions:', error);
+                        suggestionsDiv.style.display = 'none';
+                    });
+            } else {
+                suggestionsDiv.style.display = 'none'; // Hide if input is empty or too short
+            }
+        });
+
+        // Handle search button click
+        searchButton.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                window.location.href = `/search_result/${query}`; // Redirect to the search result page
+            }
+        });
+    </script>
+
+</body>
+</html>

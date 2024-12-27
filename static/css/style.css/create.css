@@ -1,0 +1,97 @@
+body {
+    background: linear-gradient(to right, #1f4b6a, #068ec3); /* Soft light background */
+    color: #333; /* Darker text for readability */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+    .create-post-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .create-post-container h1 {
+        text-align: center;
+        color: #333;
+    }
+    .form-control {
+        border-radius: 8px;
+    }
+    .image-preview {
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: none;
+        animation: bounceIn 1s ease;  /* Add bounce animation */
+    }
+    .btn-primary {
+        background: rgb(28, 192, 204);
+        border-color: rgb(36, 181, 192);
+        color: #1f293a;
+    }
+    .btn-danger {
+        background: #dc3545;
+        border-color: #dc3545;
+    }
+    .btn:hover {
+        opacity: 0.8;
+    }
+    .alert {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        color: #fff;
+    }
+    .alert-success {
+        background-color: #28a745;
+    }
+    .alert-danger {
+        background-color: #dc3545;
+    }
+    
+    /* Flexbox for aligning file input in the same line */
+    .file-upload-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    /* Hide the default file input */
+    #image {
+        display: none;
+    }
+
+    /* Style the file input button */
+    .file-upload-container label {
+        background-color: rgb(28, 192, 204);
+        padding: 10px 20px;
+        color: #1f293a;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .file-upload-container label:hover {
+        background-color: #0bc7c7;
+    }
+
+    /* Bounce animation */
+    @keyframes bounceIn {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+        }
+    }

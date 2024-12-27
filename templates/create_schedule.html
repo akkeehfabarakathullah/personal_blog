@@ -1,0 +1,29 @@
+<!-- create_schedule.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Create New Schedule</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST" action="{{ url_for('create_schedule') }}">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Schedule Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date and Time</label>
+                    <input type="datetime-local" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Create Schedule</button>
+                    <a href="{{ url_for('schedule') }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

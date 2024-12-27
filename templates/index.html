@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css/index.css') }}">
+    <div class="hero-section text-center">
+        <h1 class="display-3">Welcome to Flask Blog</h1>
+        <h2 class="lead">Write your posts and share your thoughts with the world.</h2>
+
+        {% if 'user_id' in session %}
+            {% if posts|length == 0 %}
+                <div class="message-area my-5 p-4 border rounded shadow-lg">
+                    <h2 class="h4">Create Your First Post</h2>
+                    <p class="text-muted">It looks like you haven’t created a post yet. Click below to create your first blog post.</p>
+                    <a href="{{ url_for('create') }}" class="btn btn-primary btn-lg">Create Post</a>
+                </div>
+            {% else %}
+                <h2 class="my-4">Latest Posts</h2>
+                <div class="posts-container">
+                    {% for post in posts %}
+                        <div class="post-card mb-4 rounded shadow-lg cloud-effect">
+                            <div class="post-card-body p-4">
+                                <h4 class="post-title">{{ post.title }}</h4>
+                                <p class="post-meta text-muted">By {{ post.user.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+                                <p class="post-summary">{{ post.content|truncate(150) }}</p>
+                                <a href="{{ url_for('post', post_id=post.id) }}" class="btn btn-info btn-sm toggle-post">Read More</a>
+                                <div class="post-content" style="display: none;">
+                                    <p>{{ post.content }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% else %}
+            <h2 class="my-5">Login to Create Posts</h2>
+            <p>If you have an account, please log in to create your first post.</p>
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">Login</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+<script>
+// Toggle the display of post content
+document.getElementById('toggleCreatePost').addEventListener('click', function() {
+    if (createPostContainer.style.display === 'none' || createPostContainer.style.display === '') {
+        createPostContainer.style.display = 'block';
+    } else {
+        createPostContainer.style.display = 'none';
+    }
+});
+
+</script>

@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1f4b6a, #068ec3);
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.header h1 {
+    font-size: 32px;
+    color: #10485d;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #18515c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.button:hover {
+    background-color: #16c1e3;
+    animation: bounce 0.5s ease-out;
+}
+
+.button i {
+    margin-right: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.calendar, .events {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+}
+
+.calendar:hover, .events:hover {
+    transform: translateY(-5px);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.calendar-grid button {
+    border: none;
+    background: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: fadeIn 1s ease-out;
+}
+
+.calendar-grid button:hover {
+    background-color: #e0e0e0;
+    animation: bounce 0.5s ease-out;
+}
+
+.selected-day {
+    background-color: #0a5689 !important;
+    color: white !important;
+}
+
+.today-day {
+    background-color: #16c1e3 !important;
+    color: white !important;
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+.event:hover {
+    background-color: #f0f0f0;
+    animation: bounce 0.5s ease-out;
+}
+
+.event-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.event-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.event-actions button:hover {
+    color: #333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1s ease-out;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+.modal-content input, 
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+.modal-content button {
+    background-color: #042a4a;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #042a4a;
+}
+
+.back-to-home {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: #043e59;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-home:hover {
+    background-color: #16c1e3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+

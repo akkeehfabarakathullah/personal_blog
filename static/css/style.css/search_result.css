@@ -1,0 +1,46 @@
+/* Styling for the search results container */
+#searchResults {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: linear-gradient(to right, #1f4b6a, #068ec3);
+}
+
+/* Styling for search result headings */
+#searchResults h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fefefe;
+}
+
+/* Styling for the list of search results */
+#searchResults ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Styling for each search result item */
+#searchResults li {
+    margin-bottom: 10px;
+}
+
+/* Styling for result links */
+#searchResults li a {
+    text-decoration: none;
+    color: #fefefe;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the result links */
+#searchResults li a:hover {
+    color: #ddd;
+}
+
+/* If there are no results found, styling the message */
+#searchResults p {
+    font-size: 1.2rem;
+    color: #fefefe;
+}
